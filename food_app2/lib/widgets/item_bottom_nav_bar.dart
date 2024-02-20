@@ -23,7 +23,7 @@ class ItemBottomNavBar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                '\$ $price',
+                '\$ ${price.toStringAsFixed(2)}',
                 style: const TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,

@@ -126,10 +126,13 @@ class _ItemDetailsPage extends State<ItemDetailsPage> {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
               Center(
                 child: Container(
                   padding: const EdgeInsets.all(10),
-                  width: MediaQuery.of(context).size.width * 0.40,
+                  width: MediaQuery.of(context).size.width * 0.45,
                   height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -170,6 +173,9 @@ class _ItemDetailsPage extends State<ItemDetailsPage> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
               const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Text('Product Description',
@@ -186,7 +192,7 @@ class _ItemDetailsPage extends State<ItemDetailsPage> {
         ),
       ),
       bottomNavigationBar: ItemBottomNavBar(
-        price: food[widget.id].price * count,
+        price: food[widget.id - 1].price * count,
       ),
     );
   }
