@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app2/data/dummy/dummy_products.dart';
-import 'package:food_app2/widgets/item_bottom_nav_bar.dart';
+import 'package:food_app2/widgets/item_add_bottom_nav_bar.dart';
 import 'package:go_router/go_router.dart';
 import '../style/app_color.dart';
 
@@ -45,19 +45,23 @@ class _ItemDetailsPage extends State<ItemDetailsPage> {
                       ),
                     ),
                     Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: AppColor.primaryColor),
-                            child: Padding(
-                                padding: const EdgeInsets.all(14.0),
-                                child: InkWell(
-                                    onTap: () {},
-                                    child: Icon(Icons.favorite,
-                                        color: food[widget.id - 1].isfavorite
-                                            ? Colors.red
-                                            : Colors.white))))),
+                      padding: const EdgeInsets.all(15),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: AppColor.primaryColor),
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Icon(Icons.favorite,
+                                color: food[widget.id - 1].isfavorite
+                                    ? Colors.red
+                                    : Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -191,9 +195,10 @@ class _ItemDetailsPage extends State<ItemDetailsPage> {
           ),
         ),
       ),
-      bottomNavigationBar: ItemBottomNavBar(
-        price: food[widget.id - 1].price * count,
-      ),
+      bottomNavigationBar: ItemAddBottomNavBar(
+          id: widget.id - 1,
+          price: food[widget.id - 1].price * count,
+          count: count),
     );
   }
 }

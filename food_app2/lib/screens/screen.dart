@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app2/screens/add_card.dart';
+import 'package:food_app2/screens/my_cart.dart';
 import 'package:food_app2/screens/favorites_screen.dart';
 import 'package:food_app2/screens/home_screen.dart';
 import 'package:food_app2/screens/profile_screen.dart';
@@ -17,7 +17,7 @@ class _ScreenState extends State<Screen> {
   List<Widget> screen = [
     const HomePage(),
     const FavoritesPage(),
-    const AddCrad(),
+    const MyCart(),
     const ProfilePage(),
   ];
 
@@ -30,7 +30,7 @@ class _ScreenState extends State<Screen> {
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite), label: "Favorites"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: "Shop Cart"),
+              icon: Icon(Icons.shopping_cart), label: "Cart"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
         ],
         currentIndex: _selectedIndex,

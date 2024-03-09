@@ -43,3 +43,6 @@ final List<ItemModel> food = [
       isfavorite: false,
       photo: AssetsManager.tangerines)
 ];
+
+final cartIdList = <int>[];
+final cartCountList = <int>[];

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app2/screens/add_card.dart';
+import 'package:food_app2/screens/my_cart.dart';
 import 'package:food_app2/screens/favorites_screen.dart';
 import 'package:food_app2/screens/home_screen.dart';
 import 'package:food_app2/screens/item_details_screen.dart';
@@ -31,8 +31,8 @@ class RoutesPages {
             child:
                 ItemDetailsPage(id: int.parse(state.pathParameters['id']!)))),
     GoRoute(
-        name: Routes.addcart,
-        path: Routes.addcart,
-        pageBuilder: (context, state) => const MaterialPage(child: AddCrad())),
+        name: Routes.mycart,
+        path: Routes.mycart,
+        pageBuilder: (context, state) => const MaterialPage(child: MyCart())),
   ]);
 }

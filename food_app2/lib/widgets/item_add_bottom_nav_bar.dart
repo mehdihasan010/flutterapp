@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import '../routes/route_pages.dart';
+import 'package:food_app2/src/mycart_controller.dart';
 import '../style/app_color.dart';
 
-class ItemBottomNavBar extends StatelessWidget {
-  const ItemBottomNavBar({super.key, required this.price});
+class ItemAddBottomNavBar extends StatefulWidget {
+  const ItemAddBottomNavBar(
+      {super.key, required this.price, required this.id, required this.count});
   final double price;
+  final int id;
+  final int count;
 
+  @override
+  State<ItemAddBottomNavBar> createState() => _ItemAddBottomNavBarState();
+}
+
+class _ItemAddBottomNavBarState extends State<ItemAddBottomNavBar> {
+  final controller = MyCartController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +31,7 @@ class ItemBottomNavBar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                '\$ ${price.toStringAsFixed(2)}',
+                '\$ ${widget.price.toStringAsFixed(2)}',
                 style: const TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
@@ -44,7 +52,12 @@ class ItemBottomNavBar extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0)))),
                 onPressed: () {
                   // Add to cart functionality
-                  GoRouter.of(context).pushNamed(Routes.addcart);
+                  setState(() {
+                    controller.addCart(widget.id, widget.count);
+                    //print(controller.cartList);
+                  });
+
+                  //GoRouter.of(context).pushNamed(Routes.mycart);
                 },
                 child: const Padding(
                   padding: EdgeInsets.all(10.0),
