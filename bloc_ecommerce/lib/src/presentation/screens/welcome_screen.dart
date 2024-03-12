@@ -1,6 +1,6 @@
+import 'package:bloc_ecommerce/src/presentation/widgets/widgets.dart';
 import 'package:bloc_ecommerce/src/routes/route_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
@@ -58,21 +58,9 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
               const Gap(10),
-              InkWell(
+              FullWidthButton(
+                buttonName: 'Create An Account',
                 onTap: () => context.pushNamed(Routes.REGISTER_ROUTE),
-                child: Container(
-                  height: 50.h,
-                  color: const Color(0xff9775FA),
-                  child: Center(
-                    child: Text(
-                      'Create An Account',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyLarge
-                          ?.copyWith(color: Colors.white),
-                    ),
-                  ),
-                ),
               )
             ],
           )
