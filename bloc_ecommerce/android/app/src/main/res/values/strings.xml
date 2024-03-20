@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">bloc_ecommerce</string>
+    <string name="fb_login_protocol_scheme">fb913997780456676</string>
+    <string name="facebook_app_id">913997780456676</string>
+    <string name="facebook_client_token">d1535223c22d8ba521e5c7bf4285f629</string>
+</resources>
