@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "122424366395-4guml94ndlno46t4pr1q9p6ssvugil4e.apps.googleusercontent.com",
+          "client_id": "122424366395-87ut98nv3tcirnsbhda1bin70pen31vr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.codejet.bloc_ecommerce.bloc_ecommerce",
-            "certificate_hash": "b90487a214c05072fe22ba03b9795884438b1f52"
+            "certificate_hash": "5642022daef341d19db76bf447a14ae5f016dbf1"
           }
         },
         {

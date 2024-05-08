@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bloc_ecommerce/src/data/repository/auth_repository.dart';
-import 'package:flutter/foundation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 part 'login_event.dart';
 part 'login_state.dart';
 
@@ -13,10 +14,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(LoginLoading());
         final user = await repository.signInWithGoogle();
         debugPrint("User:${user?.email}");
-        emit(LoginSuccess());
+        if (user?.email != null) {
+          emit(WelcomeLoginSuccess());
+        } else {
+          emit(LoginFailed(massage: "login failed"));
+        }
       } catch (e) {
         debugPrint(e.toString());
-        emit(LoginFailed(e.toString()));
+        emit(LoginFailed(massage: e.toString()));
       }
     });
 
@@ -25,10 +30,26 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(LoginLoading());
         final user = await repository.signInWithFacebook();
         debugPrint("User:${user?.email}");
-        emit(LoginSuccess());
+        if (user?.email != null) {
+          emit(LoginSuccess());
+        } else {
+          emit(LoginFailed(massage: "login failed"));
+        }
       } catch (e) {
         debugPrint(e.toString());
-        emit(LoginFailed(e.toString()));
+        emit(LoginFailed(massage: e.toString()));
+      }
+    });
+
+    on<RequestEmailLogin>((event, emit) async {
+      try {
+        emit(LoginLoading());
+        await repository
+            .signInWithEmail(event.email, event.password)
+            .then((value) => emit(LoginSuccess()));
+        emit(LoginInitial());
+      } catch (e) {
+        emit(LoginFailed(massage: e.toString()));
       }
     });
   }

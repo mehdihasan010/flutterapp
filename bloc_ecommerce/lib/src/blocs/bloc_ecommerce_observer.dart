@@ -1,5 +1,6 @@
-import 'package:bloc/bloc.dart';
+// ignore_for_file: avoid_print
 
+import 'package:bloc/bloc.dart';
 
 class EcommerceBlocObserver extends BlocObserver {
   @override
